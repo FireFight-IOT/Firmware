@@ -1,5 +1,7 @@
 #include <DHT11.h>
+
 int DHTpin = A1;  // 핀설정
+
 DHT11 dht11(pin);
  
 void setup() {
@@ -18,7 +20,7 @@ void loop() {
     a = true;
   }
 
-  Serial.println("%d",a)
+  Serial.println("h : %d",a)
   
   delay(1000);
 } 

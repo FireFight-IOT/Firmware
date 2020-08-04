@@ -1,5 +1,5 @@
 #include <DHT11.h>
-int pin = A1;  // 핀설정
+int DHTpin = A1;  // 핀설정
 DHT11 dht11(pin);
  
 void setup() {
@@ -8,18 +8,17 @@ void setup() {
  
 void loop() {
   int i;
+  boolean a = false;
   float humi, temp;
-  if((i = dht11.read(humi, temp)) == 0) {  
-    Serial.print("humidity:");          
-    Serial.println(humi);                                     
-  } 
-  else{ 
-    Serial.print("Error:");                    
-    Serial.println(i);                          
-  }  
-  if(humi > 45)
+  i = dht11.read(humi, temp)                                      
+   
+
+  if(humi < 45)
   {
-    Serial.print("FIRE"); 
+    a = true;
   }
+
+  Serial.println("%d",a)
+  
   delay(1000);
 } 

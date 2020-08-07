@@ -13,17 +13,7 @@ void setup() {
 void loop() {
   int gas_d = analogRead(A0);
   
-  if(gas_d >= 500)
-  {
-    fire = true;
-  }
-  else if
-  {
-    fire = false;    
-  }
-
-  Serial.print(com);
-  Serial.println(fire);
+  Serial.println(gas_d);
 
   delay(1000);
 }

@@ -11,22 +11,25 @@ void setup() {
 
 void print_serial()
 {
-  Serial.print("(1,");
+  Serial.print("1");
+  Serial.print(" ");
   Serial.print(fire[0]);
-  Serial.print(")");
-  Serial.print("(2,");
+  Serial.print(" ");
+  Serial.print("2");
+  Serial.print(" ");
   Serial.print(fire[1]);
-  Serial.print(")");
-  Serial.print("(3,");
+  Serial.print(" ");
+  Serial.print("3");
+  Serial.print(" ");
   Serial.print(fire[2]);
-  Serial.print(")");
-  Serial.print("(4,");
+  Serial.print(" ");
+  Serial.print("4");
+  Serial.print(" ");
   Serial.print(fire[3]);
-  Serial.print(")");
-  Serial.print("(5,");
-  Serial.print(fire[4]);
-  Serial.print(")");
-  Serial.println("");
+  Serial.print(" ");
+  Serial.print("5");
+  Serial.print(" ");
+  Serial.println(fire[4]);
 }
 
 void loop() {

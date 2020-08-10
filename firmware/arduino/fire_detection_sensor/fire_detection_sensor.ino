@@ -1,7 +1,7 @@
 #define Buzzer 5
 
 int Sensor[5] = {A0,A1,A2,A3,A4};
-boolean fire[5] = {false,false,false,false,false};
+int fire[5] = {0,0,0,0,0};
 int Gas_data[5] = {0,0,0,0,0};
 
 void setup() {
@@ -25,15 +25,15 @@ void print_serial()
 void loop() {
   for(int i = 0; i < 5; i++) {
     Gas_data[i] = analogRead(Sensor[i]);
-  }  
+  } 
   for(int i = 0; i < 5; i++) {
-    if(Gas_data[i] >= 500)
+    if(Gas_data[i] >= 550)
     {
-      fire[i] = true;
+      fire[i] = 1;
     }
     else if(Gas_data[i] < 500)
     {
-      fire[i] = false;    
+      fire[i] = 0;    
     }
   }
   

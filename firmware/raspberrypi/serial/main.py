@@ -1,19 +1,28 @@
 import serial
 import json
 
-json_D = {'0': 0}
-ser = serial.Serial(port = "com21", baudrate = 9600)
+ser = serial.Serial(port = "/dev/ttyACM0", baudrate = 115200)
 
-if __name__ == "__main__":
-    json_D.clear()
+def serial_changejson():
+    json_D = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0}
+
     while 1:
+        json_D.clear()
         if ser.readable():
             res = ser.readline()
             res = res[0:9]
             res = res.decode()[:len(res)]
-        for i in range(0,5):
+        for i in range(0, 5):
             a = i + 1
-            json_D[a] = str(res).split(' ')[i]
+            val = str(res).split(' ')[i]
+            json_D[a] = int(val)
+
         ptc = json.dumps(json_D)
-        print(ptc)
+
+        yield ptc
+
+if __name__ == "__main__":
+    a = serial_changejson()
+    while 1:
+        print(next(a))
 
